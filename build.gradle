@@ -1,4 +1,13 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    minSdk = 21
+    targetSdk = 28
+    compileSdk = 28
+    coroutines = '1.1.0'
+    koin = '1.0.2'
+    room = '2.0.0'
+    timber = '4.7.1'
+    test = [kluent: 1.42, junit: 4.12, mockito: '2.23.4', mockitokt: '2.1.0', assertj: '3.11.1']
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
     ext.kotlin_version = '1.3.41'
