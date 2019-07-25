@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BudgetList</string>
+    <string name="action_settings">Settings</string>
+    <string name="budget_form_name">Name</string>
+    <string name="budget_form_email">Email</string>
+    <string name="budget_form_phone">Phone</string>
+    <string name="budget_form_location">Postal Code, city</string>
+    <string name="budget_form_category">Category</string>
+    <string name="budget_form_subcategory">Subcategory</string>
+    <string name="budget_form_description">Description</string>
+</resources>
