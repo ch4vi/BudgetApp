@@ -1,2 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ch4vi.domain" />
+<manifest package="com.ch4vi.domain" />
