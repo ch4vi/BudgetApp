@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Budget(
-    val id: String,
+    val id: Int,
     val name: String,
     val email: String,
     val phone: String,

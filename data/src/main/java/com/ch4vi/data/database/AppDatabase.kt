@@ -8,9 +8,10 @@ import androidx.room.TypeConverters
 import com.ch4vi.data.database.dao.BudgetDao
 import com.ch4vi.data.database.dao.LocationDao
 import com.ch4vi.data.database.entity.DbBudget
+import com.ch4vi.data.database.entity.DbLocation
 
 @Database(
-    entities = [DbBudget::class],
+    entities = [DbBudget::class, DbLocation::class],
     version = 1, exportSchema = true
 )
 @TypeConverters(value = [DateTypeConverter::class])

@@ -29,7 +29,6 @@ internal fun Location.toDb(): DbLocation {
 }
 
 internal fun DbLocation.toLocation(): Either<Failure, Location> {
-    id ?: return Error(Failure.MapperFailure("id"))
     name ?: return Error(Failure.MapperFailure("name"))
     zip ?: return Error(Failure.MapperFailure("zip"))
 

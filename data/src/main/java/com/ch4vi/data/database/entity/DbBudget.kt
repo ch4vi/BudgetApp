@@ -14,5 +14,5 @@ data class DbBudget(
     val description: String? = null
 ) {
     @PrimaryKey(autoGenerate = true)
-    var id: String = ""
+    var id: Int = 0
 }
