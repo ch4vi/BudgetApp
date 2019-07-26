@@ -4,6 +4,6 @@ import com.ch4vi.domain.entity.Location
 import com.ch4vi.domain.utils.Either
 import com.ch4vi.domain.utils.Failure
 
-interface LocationDataSource {
+interface LocationApiDataSource {
     fun getLocationList(): Either<Failure, List<Location>>
 }

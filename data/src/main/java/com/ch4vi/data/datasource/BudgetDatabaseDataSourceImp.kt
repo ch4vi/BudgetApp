@@ -1,12 +1,14 @@
-package com.ch4vi.data.database
+package com.ch4vi.data.datasource
 
-import com.ch4vi.data.datasource.BudgetDataSource
+import com.ch4vi.data.database.AppDatabase
+import com.ch4vi.data.database.toBudget
+import com.ch4vi.data.database.toDb
 import com.ch4vi.domain.entity.Budget
 import com.ch4vi.domain.utils.Either
 import com.ch4vi.domain.utils.Failure
 import com.ch4vi.domain.utils.flat
 
-class BudgetDatabaseDataSourceImp(private val db: AppDatabase) : BudgetDataSource {
+class BudgetDatabaseDataSourceImp(private val db: AppDatabase) : BudgetDatabaseDataSource {
     override fun getBudget(id: String): Either<Failure, Budget> {
         val dbBudget = db.budgetDao().fetchBudget(id)
         dbBudget ?: return Either.Error(Failure.GenericFailure("budget with id $id not foud"))

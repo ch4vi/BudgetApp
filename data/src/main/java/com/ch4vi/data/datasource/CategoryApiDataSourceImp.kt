@@ -1,12 +1,14 @@
-package com.ch4vi.data.api
+package com.ch4vi.data.datasource
 
-import com.ch4vi.data.datasource.CategoryDataSource
+import com.ch4vi.data.api.ApiService
+import com.ch4vi.data.api.call
+import com.ch4vi.data.api.toCategory
 import com.ch4vi.domain.entity.Category
 import com.ch4vi.domain.utils.Either
 import com.ch4vi.domain.utils.Failure
 import com.ch4vi.domain.utils.flat
 
-class CategoryApiDataSourceImp(private val api: ApiService) : CategoryDataSource {
+class CategoryApiDataSourceImp(private val api: ApiService) : CategoryApiDataSource {
     override fun getCategoryList(): Either<Failure, List<Category>> {
         return api.getCategoryList().call().either(::onError) { apiList ->
             apiList.map { it.toCategory() }.flat()
