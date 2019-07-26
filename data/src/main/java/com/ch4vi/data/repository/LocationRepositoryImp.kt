@@ -12,19 +12,24 @@ class LocationRepositoryImp(
     private val locationDatabase: LocationDatabaseDataSource
 ) : LocationRepository {
 
-    override fun getLocations(forceUpdate: Boolean): Either<Failure, List<Location>> {
-        if (forceUpdate || locationDatabase.countLocations() == 0) {
-            return locationApi.getLocationList().either({
-                Either.Error(it)
-            }) {
-                locationDatabase.updateLocationList(it)
-                Either.Success(it)
-            }
-        }
+    override fun getLocationsFromDatabase(): Either<Failure, List<Location>> {
         return locationDatabase.getLocationList()
     }
 
-    override fun findLocations(filter: String): List<Location> {
+    override fun getLocationsFromApi(): Either<Failure, List<Location>> {
+        return locationApi.getLocationList()
+    }
+
+    override fun updateLocations(locations: List<Location>) {
+        locationDatabase.clearLocations()
+        locationDatabase.updateLocationList(locations)
+    }
+
+    override fun isDatabaseEmpty(): Boolean {
+        return locationDatabase.countLocations() <= 0
+    }
+
+    override fun findLocations(filter: String): Either<Failure, List<Location>> {
         return locationDatabase.findLocations(filter)
     }
 }

@@ -7,7 +7,6 @@ import com.ch4vi.domain.entity.Location
 import com.ch4vi.domain.utils.Either
 import com.ch4vi.domain.utils.Failure
 import com.ch4vi.domain.utils.flat
-import com.ch4vi.domain.utils.takeSuccess
 
 class LocationDatabaseDataSourceImp(private val db: AppDatabase) : LocationDatabaseDataSource {
 
@@ -22,9 +21,9 @@ class LocationDatabaseDataSourceImp(private val db: AppDatabase) : LocationDatab
         }
     }
 
-    override fun findLocations(filter: String): List<Location> {
+    override fun findLocations(filter: String): Either<Failure, List<Location>> {
         val list = db.locationDao().findLocations(filter) ?: emptyList()
-        return list.map { it.toLocation() }.takeSuccess()
+        return list.map { it.toLocation() }.flat()
     }
 
     override fun countLocations(): Int {
