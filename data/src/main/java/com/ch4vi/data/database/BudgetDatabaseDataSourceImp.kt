@@ -6,7 +6,7 @@ import com.ch4vi.domain.utils.Either
 import com.ch4vi.domain.utils.Failure
 import com.ch4vi.domain.utils.flat
 
-class BudgetDataSourceImp(private val db: AppDatabase) : BudgetDataSource {
+class BudgetDatabaseDataSourceImp(private val db: AppDatabase) : BudgetDataSource {
     override fun getBudget(id: String): Either<Failure, Budget> {
         val dbBudget = db.budgetDao().fetchBudget(id)
         dbBudget ?: return Either.Error(Failure.GenericFailure("budget with id $id not foud"))

@@ -12,11 +12,11 @@ import com.ch4vi.domain.utils.Either.Success
 import com.ch4vi.domain.utils.Failure
 
 
-fun Category.toDb(): DbCategory {
+internal fun Category.toDb(): DbCategory {
     return DbCategory(id, parentId, name)
 }
 
-fun DbCategory.toCategory(): Either<Failure, Category> {
+internal fun DbCategory.toCategory(): Either<Failure, Category> {
     id ?: return Error(Failure.MapperFailure("id"))
     parentId ?: return Error(Failure.MapperFailure("parentId"))
     name ?: return Error(Failure.MapperFailure("name"))
@@ -24,11 +24,11 @@ fun DbCategory.toCategory(): Either<Failure, Category> {
     return Success(Category(id, parentId, name))
 }
 
-fun Location.toDb(): DbLocation {
+internal fun Location.toDb(): DbLocation {
     return DbLocation(id, name, zip)
 }
 
-fun DbLocation.toLocation(): Either<Failure, Location> {
+internal fun DbLocation.toLocation(): Either<Failure, Location> {
     id ?: return Error(Failure.MapperFailure("id"))
     name ?: return Error(Failure.MapperFailure("name"))
     zip ?: return Error(Failure.MapperFailure("zip"))
@@ -36,7 +36,7 @@ fun DbLocation.toLocation(): Either<Failure, Location> {
     return Success(Location(id, name, zip))
 }
 
-fun Budget.toDb(): DbBudget {
+internal fun Budget.toDb(): DbBudget {
     return DbBudget(
         name,
         email,
@@ -47,7 +47,7 @@ fun Budget.toDb(): DbBudget {
     ).apply { id = this@toDb.id }
 }
 
-fun DbBudget.toBudget(): Either<Failure, Budget> {
+internal fun DbBudget.toBudget(): Either<Failure, Budget> {
     name ?: return Error(Failure.MapperFailure("name"))
     email ?: return Error(Failure.MapperFailure("email"))
     phone ?: return Error(Failure.MapperFailure("phone"))
