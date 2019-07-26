@@ -1,12 +1,5 @@
-ext {
-    room = '2.1.0'
-    gson = '2.8.5'
-    okhttp = '4.0.1'
-    retrofit = '2.6.0'
-}
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion compileSdk
@@ -27,10 +20,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 dependencies {
@@ -40,14 +29,6 @@ dependencies {
 
     implementation "org.koin:koin-android:$koin"
     implementation "com.jakewharton.timber:timber:$timber"
-
-    kapt "androidx.room:room-compiler:$room"
-    implementation "androidx.room:room-runtime:$room"
-
-    implementation "com.google.code.gson:gson:$gson"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp"
 
     testImplementation "org.amshove.kluent:kluent:$test.kluent"
     testImplementation "junit:junit:$test.junit"
