@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.ch4vi.data.database.dao.BudgetDao
+import com.ch4vi.data.database.dao.LocationDao
 import com.ch4vi.data.database.entity.DbBudget
 
 @Database(
@@ -16,6 +17,7 @@ import com.ch4vi.data.database.entity.DbBudget
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun budgetDao(): BudgetDao
+    abstract fun locationDao(): LocationDao
 
     companion object {
         private const val DEFAULT_DATABASE_NAME = "app.db"
