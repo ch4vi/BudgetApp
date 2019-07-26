@@ -1,0 +1,42 @@
+ext {
+    generateAutoVersionCode = {
+        try {
+            def stdout = new ByteArrayOutputStream()
+            exec {
+                commandLine 'git', 'rev-list', '--count', 'HEAD'
+                standardOutput = stdout
+            }
+            def commitCount = stdout.toString().trim().toInteger()
+
+            println("commitCount: " + commitCount)
+
+            return commitCount
+        } catch (ignored) {
+            return 0
+        }
+    }
+
+    generateVersionName = { version ->
+        def major = version["major"]
+        def minor = version["minor"]
+        def patch = version["patch"]
+        def versionName
+
+        if (major == null) {
+            major = 0
+        }
+        versionName = "${major}"
+
+        if (minor == null) {
+            minor = 0
+        }
+        versionName = "${versionName}.${minor}"
+
+        if (patch != null) {
+            versionName = "${versionName}.${patch}"
+        }
+
+        println("versionName: " + versionName)
+        return versionName
+    }
+}
