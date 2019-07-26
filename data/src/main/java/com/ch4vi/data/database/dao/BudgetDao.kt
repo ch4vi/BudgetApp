@@ -18,5 +18,5 @@ interface BudgetDao {
     fun deleteAll()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertBudget(repository: DbBudget): Long
+    fun insertBudget(budget: DbBudget): Long
 }
