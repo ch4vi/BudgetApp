@@ -7,9 +7,22 @@
     <string name="budget_form_category">Category</string>
     <string name="budget_form_subcategory">Subcategory</string>
     <string name="budget_form_description">Description</string>
-    <string name="error_unknown_message">Whoops! We got some problems here.</string>
     <string name="hyphen">-</string>
     <string name="budget_item_phone">Phone:</string>
     <string name="budget_item_email">Email:</string>
+    <string name="budget_item_city">City:</string>
     <string name="budget_item_description">Description:</string>
+    <string name="budget_create">Create</string>
+    <string name="helper_required">*required</string>
+
+    <string name="budget_created">Your budget has been created!</string>
+    <string name="error_unknown_message">Whoops! We got some problems here.</string>
+    <string name="invalid_name">Name can\'t be empty</string>
+    <string name="invalid_email">Email is not valid</string>
+    <string name="invalid_phone">Phone is not valid</string>
+    <string name="invalid_location">Location can\'t be empty</string>
+    <string name="invalid_category">Category can\'t be empty</string>
+    <string name="invalid_subcategory">Subcategory can\'t be empty</string>
+    <string name="invalid_description">Description can\'t be empty</string>
+    <string name="menu_refresh">Refresh</string>
 </resources>

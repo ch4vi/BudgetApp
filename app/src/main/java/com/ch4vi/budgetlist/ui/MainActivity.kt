@@ -2,6 +2,8 @@ package com.ch4vi.budgetlist.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ch4vi.budgetlist.BaseActivity
 import com.ch4vi.budgetlist.R
@@ -15,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.budget_layout_list
 import kotlinx.android.synthetic.main.activity_main.budget_layout_view
 import kotlinx.android.synthetic.main.activity_main.toolbar
 import org.koin.android.ext.android.inject
+
 
 class MainActivity : BaseActivity(), BudgetListView {
 
@@ -38,15 +41,32 @@ class MainActivity : BaseActivity(), BudgetListView {
         presenter.getBudgetList()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.update_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_refresh -> {
+                presenter.getBudgetList()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun showError(message: String?) {
         budget_layout_view.snackbar(message ?: getString(R.string.error_unknown_message))
     }
 
     override fun goToCreateBudget() {
-        startActivity(Intent())
+        startActivity(Intent(this, CreateBudgetActivity::class.java))
     }
 
     override fun loadBudgetList(list: List<Budget>) {
         budget_layout_list.adapter = BudgetAdapter(list)
+        budget_layout_list.adapter?.notifyDataSetChanged()
     }
 }
