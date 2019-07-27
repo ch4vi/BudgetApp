@@ -42,20 +42,3 @@ fun <L, R> List<Either<L, R>>.flat(): Either<L,List<R>> {
     }
     return Either.Success(list)
 }
-
-fun <L, R> List<Either<L, R>>.takeSuccess(): List<R> {
-    val list = mutableListOf<R>()
-    this.takeWhile {
-        when (it) {
-            is Either.Error -> {
-                // do nothing
-                true
-            }
-            is Either.Success -> {
-                list.add(it.b)
-                true
-            }
-        }
-    }
-    return list
-}

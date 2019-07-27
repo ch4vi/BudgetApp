@@ -11,24 +11,24 @@ abstract class UseCase<out Type, in Params> where Type : Any? {
 
     @JvmOverloads
     operator fun invoke(
-        onError: (Failure) -> Unit = {},
+        error: (Failure) -> Unit = {},
         params: Params? = null,
         dispatcher: CoroutineDispatcher = Dispatchers.Main,
-        onSuccess: (Type) -> Unit = {}
+        success: (Type) -> Unit = {}
     ) {
         this.invoke(params, dispatcher) { result ->
             result.either({
-                onError(it)
+                error(it)
             }, {
-                onSuccess(it)
+                success(it)
             })
         }
     }
 
     operator fun invoke(
-        onError: (Failure) -> Unit = {},
-        onSuccess: (Type) -> Unit = {}
-    ) = this.invoke(onError, null, Dispatchers.Main, onSuccess)
+        error: (Failure) -> Unit = {},
+        success: (Type) -> Unit = {}
+    ) = this.invoke(error, null, Dispatchers.Main, success)
 
     private fun invoke(
         params: Params? = null,
