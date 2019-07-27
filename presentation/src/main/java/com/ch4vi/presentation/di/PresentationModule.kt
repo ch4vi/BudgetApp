@@ -14,7 +14,6 @@ val presentationModule = module {
             getLocationList = get(),
             getSubcategoryList = get(),
             validateEmail = get(),
-            validateNotBlank = get(),
             validateNumeric = get()
         )
     }
