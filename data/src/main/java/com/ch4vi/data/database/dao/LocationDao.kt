@@ -21,7 +21,7 @@ interface LocationDao {
     fun insertLocation(location: DbLocation): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertLocation(locations: List<DbLocation>): Long
+    fun insertLocation(locations: List<DbLocation>): List<Long>
 
     @Query("SELECT COUNT(id) FROM location")
     fun countLocations(): Int
