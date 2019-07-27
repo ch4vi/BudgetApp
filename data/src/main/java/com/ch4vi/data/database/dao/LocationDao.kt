@@ -11,7 +11,7 @@ interface LocationDao {
     @Query("SELECT * FROM location")
     fun fetchAll(): List<DbLocation>?
 
-    @Query("SELECT * FROM location WHERE name LIKE :filter OR zip LIKE :filter")
+    @Query("SELECT * FROM location WHERE (LOWER (name) || ' ' || zip) LIKE '%' || :filter || '%' OR (zip || ' ' || LOWER (name)) LIKE '%' || :filter || '%'")
     fun findLocations(filter: String): List<DbLocation>?
 
     @Query("DELETE FROM budget")
@@ -19,6 +19,9 @@ interface LocationDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertLocation(location: DbLocation): Long
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertLocation(locations: List<DbLocation>): Long
 
     @Query("SELECT COUNT(id) FROM location")
     fun countLocations(): Int

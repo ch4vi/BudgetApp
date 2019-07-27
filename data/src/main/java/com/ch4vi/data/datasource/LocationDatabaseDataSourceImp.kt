@@ -16,9 +16,7 @@ class LocationDatabaseDataSourceImp(private val db: AppDatabase) : LocationDatab
     }
 
     override fun updateLocationList(locations: List<Location>) {
-        locations.forEach {
-            db.locationDao().insertLocation(it.toDb())
-        }
+        db.locationDao().insertLocation(locations.map { it.toDb() })
     }
 
     override fun findLocations(filter: String): Either<Failure, List<Location>> {
