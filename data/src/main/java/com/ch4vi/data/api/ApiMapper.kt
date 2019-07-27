@@ -9,7 +9,6 @@ import com.ch4vi.domain.utils.Failure
 
 internal fun ApiCategory.toCategory(): Either<Failure, Category> {
     id ?: return Either.Error(Failure.MapperFailure("id"))
-    parentId ?: return Either.Error(Failure.MapperFailure("parentId"))
     name ?: return Either.Error(Failure.MapperFailure("name"))
 
     return Either.Success(Category(id, parentId, name))
