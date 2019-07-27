@@ -43,7 +43,7 @@ internal fun Budget.toDb(): DbBudget {
         subcategory.toDb(),
         location.toDb(),
         description
-    ).apply { id = this@toDb.id }
+    )
 }
 
 internal fun DbBudget.toBudget(): Either<Failure, Budget> {
@@ -57,7 +57,7 @@ internal fun DbBudget.toBudget(): Either<Failure, Budget> {
         success = { subcategory ->
             location.toLocation().either(error = { Error(it) },
                 success = { location ->
-                    Success(Budget(id, name, email, phone, subcategory, location, description))
+                    Success(Budget(name, email, phone, subcategory, location, description))
                 })
         })
 }
