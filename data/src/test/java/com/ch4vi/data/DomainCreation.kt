@@ -9,7 +9,7 @@ fun createBudget(
     email: String = "foo",
     phone: String = "foo",
     location: Location = createLocation(),
-    subcategory: Category = createCategory(),
+    subcategory: Category = createSubcategory(),
     description: String = "foo"
 ) = Budget(name, email, phone, subcategory, location, description)
 

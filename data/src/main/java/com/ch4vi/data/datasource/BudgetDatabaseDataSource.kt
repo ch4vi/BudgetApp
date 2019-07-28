@@ -5,7 +5,7 @@ import com.ch4vi.domain.utils.Either
 import com.ch4vi.domain.utils.Failure
 
 interface BudgetDatabaseDataSource {
-    fun getBudget(id: String): Either<Failure, Budget>
+    fun getBudget(id: Int): Either<Failure, Budget>
     fun getBudgetList(): Either<Failure, List<Budget>>
     fun createBudget(budget: Budget)
 }

@@ -12,7 +12,7 @@ interface BudgetDao {
     fun fetchAll(): List<DbBudget>?
 
     @Query("SELECT * FROM budget WHERE id = :id")
-    fun fetchBudget(id: String): DbBudget?
+    fun fetchBudget(id: Int): DbBudget?
 
     @Query("DELETE FROM budget")
     fun deleteAll()
