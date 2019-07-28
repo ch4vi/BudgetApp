@@ -9,6 +9,7 @@ import com.ch4vi.domain.utils.UseCase
 class GetLocationList(
     private val locationRepository: LocationRepository
 ) : UseCase<List<Location>, GetLocationList.Params>() {
+
     override suspend fun run(params: Params?): Either<Failure, List<Location>> {
         if (params?.forceUpdate == true || locationRepository.isDatabaseEmpty()) {
             return locationRepository.getLocationsFromApi().either(::onError) {

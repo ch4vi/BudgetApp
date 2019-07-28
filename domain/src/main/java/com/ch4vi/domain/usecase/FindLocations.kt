@@ -9,10 +9,10 @@ import com.ch4vi.domain.utils.UseCase
 class FindLocations(
     private val locationRepository: LocationRepository
 ) : UseCase<List<Location>, FindLocations.Params>() {
+
     override suspend fun run(params: Params?): Either<Failure, List<Location>> {
         return locationRepository.findLocations(params?.filter ?: "")
     }
 
-    private fun onError(failure: Failure) = Either.Error(failure)
     class Params(val filter: String)
 }

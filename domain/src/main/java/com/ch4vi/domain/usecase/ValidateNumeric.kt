@@ -6,7 +6,7 @@ import com.ch4vi.domain.utils.UseCase
 
 class ValidateNumeric : UseCase<Boolean, ValidateNumeric.Params>() {
 
-    private val numericRegex = Regex("-?\\d+(\\.\\d+)?")
+    private val numericRegex = Regex("^[0-9]+\$")
 
     override suspend fun run(params: Params?): Either<Failure, Boolean> {
         params ?: return onError(Failure.ParamsFailure())
