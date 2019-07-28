@@ -9,6 +9,7 @@ import com.ch4vi.domain.utils.Failure
 class CategoryRepositoryImp(
     private val categoryApi: CategoryApiDataSource
 ) : CategoryRepository {
+
     override fun getCategories(): Either<Failure, List<Category>> {
         return categoryApi.getCategoryList()
     }
