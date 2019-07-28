@@ -14,6 +14,6 @@ class CategoryRepositoryImp(
     }
 
     override fun getSubcategories(parentId: String): Either<Failure, List<Category>> {
-        return categoryApi.getCategoryListByParentId(parentId)
+        return categoryApi.getSubcategoryList(parentId)
     }
 }

@@ -6,5 +6,5 @@ import com.ch4vi.domain.utils.Failure
 
 interface CategoryApiDataSource {
     fun getCategoryList(): Either<Failure, List<Category>>
-    fun getCategoryListByParentId(parentId: String): Either<Failure, List<Category>>
+    fun getSubcategoryList(parentId: String): Either<Failure, List<Category>>
 }

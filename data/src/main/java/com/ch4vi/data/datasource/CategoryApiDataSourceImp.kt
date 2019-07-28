@@ -3,6 +3,7 @@ package com.ch4vi.data.datasource
 import com.ch4vi.data.api.ApiService
 import com.ch4vi.data.api.call
 import com.ch4vi.data.api.toCategory
+import com.ch4vi.data.api.toSubcategory
 import com.ch4vi.domain.entity.Category
 import com.ch4vi.domain.utils.Either
 import com.ch4vi.domain.utils.Failure
@@ -15,9 +16,9 @@ class CategoryApiDataSourceImp(private val api: ApiService) : CategoryApiDataSou
         }
     }
 
-    override fun getCategoryListByParentId(parentId: String): Either<Failure, List<Category>> {
+    override fun getSubcategoryList(parentId: String): Either<Failure, List<Category>> {
         return api.getCategoryListByParentId(parentId).call().either(::onError) { apiList ->
-            apiList.map { it.toCategory() }.flat()
+            apiList.map { it.toSubcategory() }.flat()
         }
     }
 
