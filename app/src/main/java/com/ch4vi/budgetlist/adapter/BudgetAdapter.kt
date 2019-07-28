@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ch4vi.budgetlist.R
 import com.ch4vi.domain.entity.Budget
+import kotlinx.android.synthetic.main.row_budget.view.budget_row_layout_city
 import kotlinx.android.synthetic.main.row_budget.view.budget_row_layout_description
 import kotlinx.android.synthetic.main.row_budget.view.budget_row_layout_email
 import kotlinx.android.synthetic.main.row_budget.view.budget_row_layout_name
@@ -37,6 +38,7 @@ class BudgetAdapter(private val items: List<Budget>) :
         holder.subcategory?.text = budget.subcategory.name
         holder.phone?.text = budget.phone
         holder.email?.text = budget.email
+        holder.city?.text = "${budget.location.name} ${budget.location.zip}"
         holder.description?.text = budget.description
     }
 
@@ -45,6 +47,7 @@ class BudgetAdapter(private val items: List<Budget>) :
         val subcategory: TextView? = view.budget_row_layout_subcategory
         val phone: TextView? = view.budget_row_layout_phone
         val email: TextView? = view.budget_row_layout_email
+        val city: TextView? = view.budget_row_layout_city
         val description: TextView? = view.budget_row_layout_description
     }
 }

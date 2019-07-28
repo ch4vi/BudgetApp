@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -80,6 +81,25 @@
                 tools:text="aa@bb.cc" />
 
             <TextView
+                android:id="@+id/budget_row_layout_city_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/budget_item_city"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/budget_row_layout_email" />
+
+            <TextView
+                android:id="@+id/budget_row_layout_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@id/budget_row_layout_city_title"
+                app:layout_constraintTop_toTopOf="@id/budget_row_layout_city_title"
+                tools:text="Guadassuar 46610" />
+
+            <TextView
                 android:id="@+id/budget_row_layout_description_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -87,11 +107,11 @@
                 android:text="@string/budget_item_description"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/budget_row_layout_email" />
+                app:layout_constraintTop_toBottomOf="@id/budget_row_layout_city" />
 
             <TextView
                 android:id="@+id/budget_row_layout_description"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
