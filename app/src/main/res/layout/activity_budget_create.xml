@@ -1,143 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ui.MainActivity"
-    tools:showIn="@layout/activity_main">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/budget_user_name_container"
+    <include
+        android:id="@+id/budget_create_layout_include"
+        layout="@layout/view_budget_create"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/budget_create_layout_create"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/budget_form_name"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/budget_create"
+        android:text="@string/budget_create"
+        app:icon="@drawable/ic_add_white_24dp"
+        app:layout_anchor="@id/budget_create_layout_include"
+        app:layout_anchorGravity="bottom|center|end" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/budget_user_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/budget_user_email_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/budget_form_email"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_user_name_container">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/budget_user_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textEmailAddress" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/budget_user_phone_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/budget_form_phone"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_user_email_container">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/budget_user_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="phone" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/budget_user_location_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/budget_form_location"
-        android:labelFor="@+id/budget_user_location"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_user_phone_container">
-
-        <AutoCompleteTextView
-            android:id="@+id/budget_user_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="12dp"
-            android:paddingTop="28dp"
-            android:paddingEnd="12dp"
-            android:paddingBottom="16dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/budget_user_category_container"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/budget_form_category"
-        android:labelFor="@+id/budget_user_category"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_user_location_container">
-
-        <AutoCompleteTextView
-            android:id="@+id/budget_user_category"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:editable="false" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/budget_user_subcategory_container"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/budget_form_subcategory"
-        android:labelFor="@+id/budget_user_subcategory"
-        android:visibility="gone"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_user_category_container">
-
-        <AutoCompleteTextView
-            android:id="@+id/budget_user_subcategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:editable="false" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/budget_user_description_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/budget_form_description"
-        app:errorEnabled="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_user_subcategory_container">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/budget_user_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:lines="3" />
-    </com.google.android.material.textfield.TextInputLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
