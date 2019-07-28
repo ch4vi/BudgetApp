@@ -16,7 +16,7 @@ internal fun <T> Call<T>.call(): Either<Failure, T> {
             }
         } else {
             return Either.Error(
-                Failure.RequestFailure("${response.code()} ${response.message()}")
+                Failure.RequestFailure("${response.code()} ${response.errorBody()?.string()}")
             )
         }
     } catch (e: Exception) {

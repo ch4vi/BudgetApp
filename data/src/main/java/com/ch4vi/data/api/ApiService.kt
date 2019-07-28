@@ -15,6 +15,6 @@ interface ApiService {
     fun getCategoryList(): Call<List<ApiCategory>>
 
     @GET("category/list/{id}")
-    fun getCategoryListByParentId(@Path("id") parentId: String): Call<List<ApiCategory>>
+    fun getSubcategoryList(@Path("id") parentId: String): Call<List<ApiCategory>>
 }
 

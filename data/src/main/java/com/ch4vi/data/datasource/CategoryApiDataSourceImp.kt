@@ -10,6 +10,7 @@ import com.ch4vi.domain.utils.Failure
 import com.ch4vi.domain.utils.flat
 
 class CategoryApiDataSourceImp(private val api: ApiService) : CategoryApiDataSource {
+
     override fun getCategoryList(): Either<Failure, List<Category>> {
         return api.getCategoryList().call().either(::onError) { apiList ->
             apiList.map { it.toCategory() }.flat()
@@ -17,7 +18,7 @@ class CategoryApiDataSourceImp(private val api: ApiService) : CategoryApiDataSou
     }
 
     override fun getSubcategoryList(parentId: String): Either<Failure, List<Category>> {
-        return api.getCategoryListByParentId(parentId).call().either(::onError) { apiList ->
+        return api.getSubcategoryList(parentId).call().either(::onError) { apiList ->
             apiList.map { it.toSubcategory() }.flat()
         }
     }
