@@ -14,7 +14,7 @@ android {
             storePassword 'bitrise'
             keyAlias = 'bitrise'
             keyPassword 'bitrise'
-            storeFile file('/Users/jray/Documents/OwnRepos/BudgetApp/bitrise')
+            storeFile file('/Users/jray/Documents/OwnRepos/BudgetApp/bitrise.keystore')
         }
     }
     compileSdkVersion sdk.compile
