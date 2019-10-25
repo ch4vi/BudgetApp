@@ -9,6 +9,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
+    signingConfigs {
+        bitrise {
+            storePassword 'bitrise'
+            keyAlias = 'bitrise'
+            keyPassword 'bitrise'
+            storeFile file('/Users/jray/Documents/OwnRepos/BudgetApp/bitrise')
+        }
+    }
     compileSdkVersion sdk.compile
 
     defaultConfig {
