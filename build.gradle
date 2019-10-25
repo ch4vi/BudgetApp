@@ -1,7 +1,7 @@
 apply from: 'extensions.gradle'
 ext {
     version = [major: 0, minor: 1, patch: 0]
-    sdk = [min: 21, target: 28, compile: 28]
+    sdk = [min: 21, target: 29, compile: 29]
     coroutines = '1.1.0'
     koin = '2.0.1'
     timber = '4.7.1'
@@ -16,7 +16,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
+        classpath 'com.android.tools.build:gradle:3.5.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

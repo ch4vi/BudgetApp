@@ -43,7 +43,7 @@ class LocationAdapter(
         return presenter.items.getOrNull(position)
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val holder: ViewHolder
         val resultView: View
 
