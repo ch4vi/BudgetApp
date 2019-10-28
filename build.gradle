@@ -29,6 +29,14 @@ allprojects {
         jcenter()
 
     }
+
+    // This disables bundleDebugAndroidTestResources because it is failing in Bitrise,
+    // and because we don't have android tests
+    tasks.whenTaskAdded {task ->
+        if(task.name.contains("AndroidTest")) {
+            task.enabled = false
+        }
+    }
 }
 
 task clean(type: Delete) {

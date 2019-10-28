@@ -133,6 +133,7 @@ gradle-app.setting
 # Built application files
 *.apk
 *.ap_
+*.aab
 
 # Files for the ART/Dalvik VM
 *.dex
@@ -231,3 +232,4 @@ $RECYCLE.BIN/
 /build
 /captures
 .externalNativeBuild
+/*/schemas

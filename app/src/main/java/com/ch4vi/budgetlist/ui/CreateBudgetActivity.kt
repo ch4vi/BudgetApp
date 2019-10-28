@@ -54,11 +54,11 @@ class CreateBudgetActivity : BaseActivity(), BudgetCreateView {
         outState.putParcelable(SUBCATEGORY, presenter.mutableBudget.subcategory)
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        presenter.setLocation(savedInstanceState?.getParcelable(LOCATION))
-        presenter.setCategory(savedInstanceState?.getParcelable(CATEGORY))
-        presenter.setSubcategory(savedInstanceState?.getParcelable(SUBCATEGORY), true)
+        presenter.setLocation(savedInstanceState.getParcelable(LOCATION))
+        presenter.setCategory(savedInstanceState.getParcelable(CATEGORY))
+        presenter.setSubcategory(savedInstanceState.getParcelable(SUBCATEGORY), true)
     }
 
     override fun onDestroy() {
